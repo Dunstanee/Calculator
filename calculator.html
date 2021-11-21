@@ -1,0 +1,158 @@
+<html>
+  <title>
+    Calculator
+  </title>
+
+  <head>
+    <meta charset="UTF-8">
+    <mete name="viewport" content="width=device-width,
+initial-scale=1.0">
+      <style>
+        *,*::before,*::after{
+        box-sizing:border-box;
+        font-family:Gothan Rrounded, sans-serif;
+        font-weight:normal;}
+        body{
+        padding:0;
+        margin:0;
+        background: linear-gradient(to right,lightblue,lightgreen);
+        }
+        .calculator-grid{
+        display:grid;
+        justify-content:center;
+        align-c0ntent:center;
+        min-height:100vh;
+        grid-template-columns:repeat(4,100px);
+        grid-template-rows:minmax(120px,auto)repeat(5,100px);
+        }
+        .calculator-grid> button{
+        cursor:pointer;
+        font-size:2rem;
+        border:1px solid white;
+        outline: none;
+        background-color:rgba(2555,255,255,.75);
+        }
+        .calculator-grid> button:hover{
+        background-color:rgba(2555,255,255,.90);
+        }
+        .span-two{
+        grid-column:span 2;
+        }
+        .output{
+        grid-column:1/-1;
+        background-color:rgba(0,0,0,.75);
+        display:flex;
+        align-items:flex-end;
+        justify-content:space-around ;
+        frex-direction:column;
+        padding:10px;
+        word-wrap:break-word;
+        word-break:break-all;
+        }
+        .output .prev-oprd{
+        color:rgba(255,255,255,.75);
+        font-size:1.5rem;
+        }
+        .output .curr-oprd{
+        color:white;
+        font-size:2.5rem;
+        }
+      </style>
+  </head>
+
+  <body>
+    <div class="calculator-grid">
+      <div class="output">
+        <div data-previus-operand class="previusoperad"></div>
+        <div data-current-operand class="currentoperad"></div>
+      </div>
+
+      <button data-all-clear class="span-two">AC</button>
+      <button data-delete>DEL</button>
+      <button data-operation>/</button>
+      <button data-number>1</button>
+      <button data-number>2</button>
+      <button data-number>3</button>
+      <button data-operation>*</button>
+      <button data-number>4</button>
+      <button data-number>5</button>
+      <button data-number>6</button>
+      <button data-operation>+</button>
+      <button data-number>7</button>
+      <button data-number>8</button>
+      <button data-number>9</button>
+      <button data-operation>-</button>
+      <button data-number>.</button>
+      <button data-number>0</button>
+      <button data-equals class="span-two">=</button>
+    </div>
+  </body>
+  <script>
+    class Calculator
+    {
+      constructor(previusOperandTextElement, currentOperandTextElement)
+      {
+        this.previusOperandTextElement = previusOperandTextElement;
+        this.currentOperandTextElement = currentOperandTextElement;
+        this.clear();
+      }
+      clear()
+      {
+
+        this.currentOperand == "";
+        this.previusOperand == "";
+        this.operation = undefined;
+      }
+      delete()
+      {}
+      appendNumber(number)
+      {
+        this.currentoperad = number
+      }
+      chooseOperation(operation)
+      {}
+      compute()
+      {}
+      updateDisplay()
+      {
+        this.currentOperandTextElement.innerText = this.currentOperand();
+      }
+      updateDisplay(){
+
+      }
+    }
+
+    const numberbuttons = document.querySelectorAll('[data-number]');
+    const operatorbuttons = document.querySelectorAll('[data-operation]');
+    const equalsbuttons = document.querySelector('[data-equals]');
+    const deletebuttons = document.querySelector('[data-delete]');
+    const allclearbuttons = document.querySelector('[data-all-clear]');
+    const previusOperandTextElement = document.querySelector(
+      '[data-previusoperad]');
+    const currentOperandTextElement = document.querySelector(
+      '[data-currentoperad]');
+
+    const calculator = new Calculator(previusOperandTextElement,
+      currentOperandTextElement)
+    numberbuttons.forEach(button =>
+    {
+      button.addEventListener('click', () =>
+      {
+        calculator.appendNumber(button.innerText);
+        calculator.updateDisplay();
+      })
+    })
+  </script>
+
+</html>
+
+
+
+<!--
+Visual Code Mobile
+Developed By Manish Nirmal
+App Available on Play Store :-
+https://play.google.com/store/apps/details?id=lk.visual.code.mobile
+YouTube :-
+https://youtube.com/ManishNirmal
+-->
